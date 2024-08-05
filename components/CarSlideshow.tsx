@@ -1,8 +1,6 @@
-// CarSlideshow.tsx
-
 import React from 'react';
 import { View, Text, ScrollView, Image } from 'react-native';
-import { carData } from '@/data/carData'; // Ensure the path is correct
+import { carData } from '@/data/carData'; 
 import { CarData } from '@/lib/definitions';
 
 const CarSlideshow: React.FC = () => {
