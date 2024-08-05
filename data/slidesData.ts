@@ -1,16 +1,6 @@
 import { images } from '@/constants';
+import { SlideData } from '@/lib/definitions';
 
-// types.ts
- interface SlideData {
-    image: any; // Type for the image, typically require or an imported image
-    title: string;
-    description: string;
-    buttonText: string;
-    onPress: () => void;
-  }
-  
-
-  
   export const slidesData: SlideData[] = [
     {
       image: images.wtwd1,
