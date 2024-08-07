@@ -3,6 +3,8 @@ import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { carData } from '@/data/carData';
 import { CarData } from '@/lib/definitions';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import {  router } from 'expo-router'
+
 
 const CarSlideshow: React.FC = () => {
   const displayedCars = carData.slice(0, 6);
@@ -49,7 +51,7 @@ const CarSlideshow: React.FC = () => {
           className="w-64 mx-2 bg-gray-200 shadow-lg rounded-lg overflow-hidden justify-center items-center p-4"
           onPress={() => {
             // Navigate to the cars page (replace with your navigation logic)
-            console.log('Navigate to Cars Page');
+            router.push('/rentals')
           }}
         >
           <MaterialIcons name="more-horiz" size={48} color="#f56565" />

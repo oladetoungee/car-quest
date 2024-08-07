@@ -57,7 +57,7 @@ const TabsLayout = () => {
         }}
       />
         <Tabs.Screen
-        name="create"
+        name="rentals"
         options={{
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (

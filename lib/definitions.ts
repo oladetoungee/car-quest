@@ -5,6 +5,7 @@ export  interface CarData {
   model: string;
   rentalRatePerHour: number;
   additionalInfo: string;
+  id: string
 }
 
 export  interface SlideData {

@@ -3,6 +3,7 @@ import { CarData } from '@/lib/definitions';
 
 export const carData: CarData[] = [
   {
+    id: '1',
     image: images.car1,
     name: "Toyota Corolla",
     transmission: "Automatic",
@@ -11,6 +12,7 @@ export const carData: CarData[] = [
     additionalInfo: "A reliable sedan with great fuel efficiency.",
   },
   {
+    id: '2',
     image: images.car2,
     name: "Honda Civic",
     transmission: "Manual",
@@ -19,6 +21,7 @@ export const carData: CarData[] = [
     additionalInfo: "Sporty and compact with advanced safety features.",
   },
   {
+    id: '3',
     image: images.car3,
     name: "Ford Mustang",
     transmission: "Automatic",
@@ -27,6 +30,7 @@ export const carData: CarData[] = [
     additionalInfo: "A classic muscle car with powerful performance.",
   },
   {
+    id: '4',
     image: images.car4,
     name: "Chevrolet Malibu",
     transmission: "Automatic",
@@ -35,6 +39,7 @@ export const carData: CarData[] = [
     additionalInfo: "A comfortable midsize sedan with modern amenities.",
   },
   {
+    id: '5',
     image: images.car5,
     name: "Tesla Model 3",
     transmission: "Automatic",
@@ -43,6 +48,7 @@ export const carData: CarData[] = [
     additionalInfo: "An electric car with impressive range and features.",
   },
   {
+    id: '6',
     image: images.car6,
     name: "BMW 3 Series",
     transmission: "Automatic",
@@ -51,6 +57,7 @@ export const carData: CarData[] = [
     additionalInfo: "A luxury sedan with sporty handling and comfort.",
   },
   {
+    id: '7',
     image: images.car7,
     name: "Audi A4",
     transmission: "Automatic",
@@ -59,6 +66,7 @@ export const carData: CarData[] = [
     additionalInfo: "Elegant and powerful with advanced technology.",
   },
   {
+    id: '8',
     image: images.car8,
     name: "Mercedes-Benz C-Class",
     transmission: "Automatic",
@@ -67,6 +75,7 @@ export const carData: CarData[] = [
     additionalInfo: "Luxurious and refined with a smooth ride.",
   },
   {
+    id: '9',
     image: images.car2,
     name: "Nissan Altima",
     transmission: "Automatic",
@@ -74,6 +83,4 @@ export const carData: CarData[] = [
     rentalRatePerHour: 17,
     additionalInfo: "A stylish sedan with a comfortable interior.",
   },
- 
 ];
-
