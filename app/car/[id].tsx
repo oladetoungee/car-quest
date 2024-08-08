@@ -1,9 +1,9 @@
 import { useLocalSearchParams } from 'expo-router';
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, Alert } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Modal, Alert } from 'react-native';
 import { carData } from '@/data/carData';
 import { CarData } from '@/lib/definitions';
-import { text } from 'stream/consumers';
+
 
 export default function DetailsScreen() {
   const { id } = useLocalSearchParams();
@@ -13,8 +13,8 @@ export default function DetailsScreen() {
 
   if (!car) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Car not found</Text>
+      <View className="flex-1 justify-center items-center p-4 bg-black">
+        <Text className="text-white text-lg">Car not found</Text>
       </View>
     );
   }
@@ -30,20 +30,20 @@ export default function DetailsScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image source={car.image} style={styles.image} resizeMode="cover" />
-      <Text style={styles.title}>{car.name}</Text>
-      <Text style={styles.info}>{car.additionalInfo}</Text>
-      <Text style={styles.details}>
+    <View className="flex-1 justify-center items-center p-4 bg-black">
+      <Image source={car.image} className="w-full h-48 rounded-lg mb-4" resizeMode="cover" />
+      <Text className="text-2xl font-bold text-white mb-2">{car.name}</Text>
+      <Text className="text-base text-gray-400 mb-2">{car.additionalInfo}</Text>
+      <Text className="text-sm text-white mb-1">
         {car.transmission} - {car.model}
       </Text>
-      <Text style={styles.details}>NGN {car.rentalRatePerHour}/hour</Text>
+      <Text className="text-sm text-white mb-4">NGN {car.rentalRatePerHour}/hour</Text>
 
       <TouchableOpacity
-        style={styles.bookButton}
+        className="mt-5 bg-red-500 py-3 px-8 rounded-lg"
         onPress={handleBookNow}
       >
-        <Text style={styles.bookButtonText}>Book Now</Text>
+        <Text className="text-white text-lg font-bold">Book Now</Text>
       </TouchableOpacity>
 
       <Modal
@@ -52,22 +52,22 @@ export default function DetailsScreen() {
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Confirm Booking</Text>
-            <Text style={styles.modalText}>Are you sure you want to book this car?</Text>
-            <View style={styles.modalButtons}>
+        <View className="flex-1 justify-center items-center bg-transparent bg-opacity-50">
+          <View className="w-4/5 bg-white p-5 rounded-lg items-center">
+            <Text className="text-xl font-bold mb-4">Confirm Booking</Text>
+            <Text className="text-base mb-4">Are you sure you want to book this car?</Text>
+            <View className="flex-row justify-between w-full">
               <TouchableOpacity
-                style={styles.modalButton}
+                className="flex-1 bg-red-500 py-2 mx-1 rounded-lg items-center"
                 onPress={() => setModalVisible(false)}
               >
-                <Text style={styles.modalButtonText}>Cancel</Text>
+                <Text className="text-white text-base">Cancel</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={styles.modalButton}
+                className="flex-1 bg-red-500 py-2 mx-1 rounded-lg items-center"
                 onPress={handleConfirmBooking}
               >
-                <Text style={styles.modalButtonText}>Confirm</Text>
+                <Text className="text-white text-base">Confirm</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -76,90 +76,3 @@ export default function DetailsScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-    backgroundColor: 'black',
-  },
-  text: {
-    color: 'white',
-    fontSize: 18,
-  },
-  image: {
-    width: '100%',
-    height: 200,
-    borderRadius: 8,
-    marginBottom: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 8,
-  },
-  info: {
-    fontSize: 16,
-    color: 'gray',
-    marginBottom: 8,
-  },
-  details: {
-    fontSize: 14,
-    color: 'white',
-    marginBottom: 4,
-  },
-  bookButton: {
-    marginTop: 20,
-    backgroundColor: '#ff5252',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 8,
-  },
-  bookButtonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalContent: {
-    width: '80%',
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  modalText: {
-    fontSize: 16,
-    marginBottom: 16,
-  },
-  modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
-  modalButton: {
-    flex: 1,
-    backgroundColor: '#ff5252',
-    padding: 10,
-    marginHorizontal: 5,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  modalButtonText: {
-    color: 'white',
-    fontSize: 16,
-  },
-});
