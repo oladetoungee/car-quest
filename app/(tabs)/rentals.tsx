@@ -2,10 +2,9 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { carData } from '@/data/carData';
 import { CarData } from '@/lib/definitions';
-import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
-
+import { router } from 'expo-router';
 const CarRentalsPage: React.FC = () => {
   return (
     <SafeAreaView style={{ backgroundColor: 'black', flex: 1 }}>
@@ -39,7 +38,8 @@ const CarRentalsPage: React.FC = () => {
               <TouchableOpacity
                 className="mt-4 bg-rose-400 rounded-lg p-3"
                 onPress={() => {
-                  router.push(`/book/${car.id}`);
+                  console.log(`Navigating to /car/${car.id}`);
+                  router.push(`/car/${car.id}`);
                 }}
               >
                 <Text className="text-white text-center text-lg font-semibold">Book Car</Text>
