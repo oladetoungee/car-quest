@@ -13,5 +13,5 @@ export  interface SlideData {
     title: string;
     description: string;
     buttonText: string;
-    onPress: () => void;
+content: string
   }
