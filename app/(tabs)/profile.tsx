@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useGlobalContext } from '@/context/GlobalProvider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
-import { signOut } from '@/lib/appwrite';
+import { signOut, getCurrentUser,  getAccount } from '@/lib/appwrite';
 
 
 const ProfileScreen: React.FC = () => {
@@ -19,6 +19,7 @@ const ProfileScreen: React.FC = () => {
     setIsLoggedIn(false);
 
     router.replace("/sign-in");
+    
   };
 
   return (
@@ -35,7 +36,7 @@ const ProfileScreen: React.FC = () => {
             resizeMode='cover'
           /> */}
         </View>
-        {/* <Text className='text-white text-xl mt-4'>{user?.username}</Text> */}
+        <Text className='text-white text-xl mt-4'>reer{user?.email}</Text>
       </View>
       <StatusBar backgroundColor='#161622' style='light' />
     </SafeAreaView>
