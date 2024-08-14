@@ -69,7 +69,6 @@ const CarRentalsPage: React.FC = () => {
                 <TouchableOpacity
                   className="mt-4 bg-rose-400 rounded-lg p-3"
                   onPress={() => {
-                    console.log(`Navigating to /car/${car.id}`);
                     router.push(`/car/${car.id}`);
                   }}
                 >

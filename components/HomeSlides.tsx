@@ -57,7 +57,7 @@ const HomeSlides: React.FC = () => {
       {/* Flip Modal */}
       <Animated.View style={[animatedStyle]} className="absolute bottom-0 left-0 right-0 h-[90%] bg-black bg-opacity-90 rounded-t-2xl z-10 p-4">
         {selectedSlide !== null && (
-          <View className="flex-1 p-6">
+          <View className="flex-1 px-6">
             <Text className="text-xl text-white font-bold mb-2">
               {slidesData[selectedSlide].title}
             </Text>

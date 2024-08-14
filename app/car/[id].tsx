@@ -1,12 +1,16 @@
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useNavigation } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, Modal, Alert, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { carData } from '@/data/carData';
 import { CarData } from '@/lib/definitions';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function DetailsScreen() {
   const { id } = useLocalSearchParams();
+  const navigation = useNavigation();
   const car = carData.find((car: CarData) => car.id === id);
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -61,7 +65,15 @@ export default function DetailsScreen() {
   };
 
   return (
+    <SafeAreaView style={{ backgroundColor: 'black', flex: 1 }}>
     <View className="flex-1 bg-black">
+        {/* Back Button */}
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{ position: 'absolute', top: 20, left: 20, zIndex: 10 }}
+        >
+          <Ionicons name="arrow-back" size={24} color="white" />
+        </TouchableOpacity>
       <View className={`flex-1 justify-center items-center p-4 ${modalVisible ? 'opacity-20' : 'opacity-100'}`}>
         <Text className="text-xl font-extrabold text-rose-400 text-center mb-8">
           A {car.name} is available at our Ikeja Station
@@ -121,5 +133,7 @@ export default function DetailsScreen() {
         </View>
       </Modal>
     </View>
+    <StatusBar backgroundColor='#161622' style='light' />
+    </SafeAreaView>
   );
 }
