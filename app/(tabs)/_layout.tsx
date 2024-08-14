@@ -14,7 +14,7 @@ interface TabIconProps {
 const TabIcon: React.FC<TabIconProps> = ({ name, color, focused, icon }) => {
   return (
     <View className="flex-1 items-center justify-center">
-      <Ionicons name={icon} size={24} color={color} /> 
+      <Ionicons name={icon} size={18} color={color} /> 
       <Text className={`${focused ? 'font-semibold' : 'font-normal'} p-1 text-xs`} style={{color: color}} >{name}</Text>
     </View>
   );
@@ -26,7 +26,7 @@ const TabsLayout = () => {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: 'pink',
+          tabBarActiveTintColor: 'rose',
           tabBarInactiveTintColor: 'gray',
           tabBarStyle: {
             backgroundColor: 'black',
