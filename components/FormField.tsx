@@ -1,6 +1,6 @@
-import { icons } from '@/constants';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Image, TextInputProps, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TextInputProps, TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 interface FormFieldProps extends TextInputProps {
     label: string;
@@ -14,24 +14,27 @@ const FormField: React.FC<FormFieldProps> = ({ label, secureTextEntry, ...textIn
 
     return (
         <View className='mb-4 mt-4 border-gray-200 bg-black-500 text-white'>
-
             <Text className='text-rose-400 text-sm mb-2'>{label}</Text>
-            <View className='flex-row items-center rounded-lg bg-white  w-full'>
+            <View className='flex-row items-center rounded-lg bg-white w-full'>
                 <TextInput
-                    className='p-4  w-[90%] '
+                    className='p-4 w-[90%]'
                     secureTextEntry={secureTextEntry && !isPasswordVisible}
                     placeholderTextColor="#aaa"
+                    autoCapitalize='none' 
                     {...textInputProps}
                 />
                 {secureTextEntry && (
                     <TouchableOpacity onPress={togglePasswordVisibility}>
-                        <Image className='w-6 h-6 ' source={!isPasswordVisible ? icons.eye : icons.eyeHide} />
+                        <Ionicons
+                            name={isPasswordVisible ? 'eye-off' : 'eye'}
+                            size={18}
+                            color="black"
+                        />
                     </TouchableOpacity>
                 )}
             </View>
-
         </View>
     );
-}
+};
 
 export default FormField;
