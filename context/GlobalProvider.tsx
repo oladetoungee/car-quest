@@ -52,9 +52,8 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
         )
         .finally(() => setLoading(false
         ));
-
     }, []);
-
+console.log(user, 'user');
     return (
         <GlobalContext.Provider value={{ isLoggedIn, setIsLoggedIn, user, setUser, isLoading, setLoading }}>
             {children}

@@ -88,24 +88,39 @@ export const signIn = async (email: string, password: string) => {
     console.log(error)
     }
 }
-export const getCurrentUser = async () => {
-    // Get Current User
+
+// Get Account
+export async function getAccount() {
     try {
-        const currentAccount = await account.get();
-        if (!currentAccount) throw Error
-
-        const currentUser = await databases.listDocuments(
-            config.databaseId,
-            config.userCollectionId,
-        [Query.equal('accountId', currentAccount.$id)]
-        );
-        if (!currentUser) throw Error
-
-        return currentUser.documents[0];
+      const currentAccount = await account.get();
+  
+      return currentAccount;
     } catch (error) {
-        console.log(error)
+      throw new Error;
     }
-}
+  }
+
+// Get Current User
+export async function getCurrentUser() {
+    try {
+      const currentAccount = await getAccount();
+      if (!currentAccount) throw Error;
+  
+      const currentUser = await databases.listDocuments(
+        config.databaseId,
+        config.userCollectionId,
+        [Query.equal("accountId", currentAccount.$id)]
+      );
+  
+      if (!currentUser) throw Error;
+  
+      return currentUser.documents[0];
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+  
 
 
 export const getAllPosts = async () => {
@@ -130,3 +145,14 @@ export const getAllPosts = async () => {
         return { documents: [] }; // Return empty array or handle error state
     }
 };
+
+// Sign Out
+export async function signOut() {
+    try {
+      const session = await account.deleteSession("current");
+  
+      return session;
+    } catch (error) {
+    console.log(error, 'log out error');
+    }
+  }
