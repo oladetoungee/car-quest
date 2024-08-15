@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ScrollView, Image } from 'react-native';
 import { Link } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -8,13 +8,16 @@ import { images } from '@/constants';
 import CustomButton from '@/components/CustomButton';
 import { Redirect, router } from 'expo-router'
 import { useGlobalContext } from '@/context/GlobalProvider';
-
+import { checkAndClearStorage } from '../app/utils/storageManager';
 export default function HomeScreen() {
   const { isLoggedIn, isLoading } = useGlobalContext();
   if (!isLoading && isLoggedIn) {
     return <Redirect href='/home' />
-
   }
+  useEffect(() => {
+    checkAndClearStorage();
+  }, []);
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ backgroundColor: 'black', flex: 1 }}>

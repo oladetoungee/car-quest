@@ -8,8 +8,9 @@ export const carData: CarData[] = [
     name: "Toyota Corolla",
     transmission: "Automatic",
     model: "2021",
-    rentalRatePerHour: 15,
+    rentalRatePerHour: 1500,
     additionalInfo: "A reliable sedan with great fuel efficiency.",
+    station: "Ikeja"
   },
   {
     id: '2',
@@ -17,8 +18,9 @@ export const carData: CarData[] = [
     name: "Honda Civic",
     transmission: "Manual",
     model: "2020",
-    rentalRatePerHour: 12,
+    rentalRatePerHour: 1200,
     additionalInfo: "Sporty and compact with advanced safety features.",
+    station: "Yaba"
   },
   {
     id: '3',
@@ -26,8 +28,9 @@ export const carData: CarData[] = [
     name: "Ford Mustang",
     transmission: "Automatic",
     model: "2019",
-    rentalRatePerHour: 20,
+    rentalRatePerHour: 2000,
     additionalInfo: "A classic muscle car with powerful performance.",
+    station: "Lekki"
   },
   {
     id: '4',
@@ -35,8 +38,9 @@ export const carData: CarData[] = [
     name: "Chevrolet Malibu",
     transmission: "Automatic",
     model: "2022",
-    rentalRatePerHour: 18,
+    rentalRatePerHour: 1800,
     additionalInfo: "A comfortable midsize sedan with modern amenities.",
+    station: "Victoria Island"
   },
   {
     id: '5',
@@ -44,8 +48,9 @@ export const carData: CarData[] = [
     name: "Tesla Model 3",
     transmission: "Automatic",
     model: "2023",
-    rentalRatePerHour: 25,
+    rentalRatePerHour: 2500,
     additionalInfo: "An electric car with impressive range and features.",
+    station: "Ikoyi"
   },
   {
     id: '6',
@@ -53,8 +58,9 @@ export const carData: CarData[] = [
     name: "BMW 3 Series",
     transmission: "Automatic",
     model: "2021",
-    rentalRatePerHour: 22,
+    rentalRatePerHour: 2200,
     additionalInfo: "A luxury sedan with sporty handling and comfort.",
+    station: "Surulere"
   },
   {
     id: '7',
@@ -62,8 +68,9 @@ export const carData: CarData[] = [
     name: "Audi A4",
     transmission: "Automatic",
     model: "2020",
-    rentalRatePerHour: 24,
+    rentalRatePerHour: 2400,
     additionalInfo: "Elegant and powerful with advanced technology.",
+    station: "Ajah"
   },
   {
     id: '8',
@@ -71,8 +78,9 @@ export const carData: CarData[] = [
     name: "Mercedes-Benz C-Class",
     transmission: "Automatic",
     model: "2019",
-    rentalRatePerHour: 26,
+    rentalRatePerHour: 2600,
     additionalInfo: "Luxurious and refined with a smooth ride.",
+    station: "Ikeja GRA"
   },
   {
     id: '9',
@@ -80,7 +88,8 @@ export const carData: CarData[] = [
     name: "Nissan Altima",
     transmission: "Automatic",
     model: "2022",
-    rentalRatePerHour: 17,
+    rentalRatePerHour: 1700,
     additionalInfo: "A stylish sedan with a comfortable interior.",
+    station: "Ogudu"
   },
 ];

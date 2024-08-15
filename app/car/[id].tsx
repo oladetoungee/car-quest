@@ -76,7 +76,7 @@ export default function DetailsScreen() {
         </TouchableOpacity>
       <View className={`flex-1 justify-center items-center p-4 ${modalVisible ? 'opacity-20' : 'opacity-100'}`}>
         <Text className="text-xl font-extrabold text-rose-400 text-center mb-8">
-          A {car.name} is available at our Ikeja Station
+          A {car.name} is available at our {car.station} Station
         </Text>
         <Image
           source={car.image}

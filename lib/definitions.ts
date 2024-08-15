@@ -6,6 +6,7 @@ export  interface CarData {
   rentalRatePerHour: number;
   additionalInfo: string;
   id: string
+  station: string
 }
 
 export  interface SlideData {
