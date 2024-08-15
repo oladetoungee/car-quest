@@ -15,3 +15,12 @@ export  interface SlideData {
     buttonText: string;
 content: string
   }
+
+ export interface Booking {
+    carId: string;
+    carName: string;
+    hours: number;
+    totalAmount: number;
+    date: string;
+  }
+  

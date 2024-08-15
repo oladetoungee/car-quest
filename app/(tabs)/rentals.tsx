@@ -15,7 +15,7 @@ const CarRentalsPage: React.FC = () => {
     car.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
     car.additionalInfo.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+// console.log(carData)
   return (
     <SafeAreaView style={{ backgroundColor: 'black', flex: 1 }}>
       <ScrollView className="bg-black flex-1">
