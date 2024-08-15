@@ -23,7 +23,7 @@ const CarRentalsPage: React.FC = () => {
           <Text className="text-3xl font-extrabold text-rose-400">All Vehicles</Text>
           
           {/* Search bar */}
-          <View className="flex flex-row items-center mt-4 mb-6 px-4 py-2 bg-gray-800 rounded-lg border border-rose-400">
+          <View className="flex flex-row items-center mt-4 mb-6 px-4 py-2 bg-gray-800 rounded-lg border border-rose-300">
             <Ionicons name="search" size={18} color="#ccc" className="mr-2" />
             <TextInput
               className="flex-1 text-white"
@@ -67,12 +67,12 @@ const CarRentalsPage: React.FC = () => {
                 </View>
 
                 <TouchableOpacity
-                  className="mt-4 bg-rose-400 rounded-lg p-3"
+                  className="mt-4 bg-rose-400 shadow-md rounded-lg p-2"
                   onPress={() => {
                     router.push(`/car/${car.id}`);
                   }}
                 >
-                  <Text className="text-white text-center text-lg font-semibold">Book Car</Text>
+                  <Text className="text-white text-center text-base font-semibold">Book Car</Text>
                 </TouchableOpacity>
               </View>
             </View>

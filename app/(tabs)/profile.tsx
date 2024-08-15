@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { signOut } from '@/lib/appwrite';
 import { Booking } from '@/lib/definitions';
 import { router } from "expo-router";
-import { carData } from '@/data/carData'; // Import carData
+import { carData } from '@/data/carData'; 
 
 const ProfileScreen: React.FC = () => {
   const { user, setUser, setIsLoggedIn } = useGlobalContext();
@@ -45,9 +45,6 @@ const ProfileScreen: React.FC = () => {
     return initials.toUpperCase();
   };
 
-
-
-
   return (
     <SafeAreaView style={{ backgroundColor: 'black', flex: 1 }}>
       <View className='flex-1 pt-24'>
@@ -70,7 +67,7 @@ const ProfileScreen: React.FC = () => {
         </View>
 
         {/* Content Section */}
-        <View className='flex-1 items-center p-4'>
+        <View className='flex-1 items-center px-4'>
           {bookings.length === 0 ? (
             <View className='flex-1 justify-center items-center'>
               <Text className='text-gray-400 text-base text-center mb-4'>
@@ -85,26 +82,39 @@ const ProfileScreen: React.FC = () => {
             </View>
           ) : (
             <>
-            <Text className='text-white text-xl font-bold mb-4'>
-            You have booked {bookings.length} rentals so far!
-            </Text>
-            <ScrollView className='w-full'>
-              {bookings.map((booking, index) => (
-                <View key={index} className='bg-gray-800 p-4 rounded-lg mb-4 mx-2'>
-              
-                  <Text className='text-rose-400 text-lg font-bold mb-2'>{booking?.carName}</Text>
-                  <Text className='text-white text-base'>Hours: {booking?.hours}</Text>
-                  <Text className='text-white text-base'>Total Amount Paid: NGN{booking?.totalAmount}</Text>
-                  <Text className='text-gray-400 text-sm'>Date: {new Date(booking?.date).toLocaleString()}</Text>
-                  <TouchableOpacity 
-                    onPress={() => router.push(`/car/${booking?.carId}`)} 
-                    className='bg-rose-400 p-2 rounded-lg mt-4'
-                  >
-                    <Text className='text-white text-center font-bold'>Re-Rent Car</Text>
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </ScrollView>
+              <Text className='text-white text-xl font-bold mb-4'>
+                You have booked {bookings.length} rentals so far!
+              </Text>
+              <ScrollView className='w-full mt-4'>
+                {bookings.map((booking, index) => {
+                  // Find the car details from carData using carId
+                  const carDetails = carData.find((car) => car.id === booking?.carId);
+
+                  return (
+                    <View key={index} className=' p-4 rounded-lg mb-4 mx-2'>
+                      {/* Display car image */}
+                      {carDetails && (
+                        <Image
+                          source={carDetails.image}
+                          className="w-full h-48 mb-4"
+                          resizeMode="cover"
+                        />
+                      )}
+
+                      <Text className='text-rose-400 text-lg font-bold '>{booking?.carName}</Text>
+                      <Text className='text-white text-base'>Hours: {booking?.hours}</Text>
+                      <Text className='text-white text-base'>Total Amount Paid: NGN{booking?.totalAmount}</Text>
+                      <Text className='text-gray-400 text-sm'>Date: {new Date(booking?.date).toLocaleString()}</Text>
+                      <TouchableOpacity 
+                        onPress={() => router.push(`/car/${booking?.carId}`)} 
+                        className='bg-rose-400 p-2 rounded-lg mt-2'
+                      >
+                        <Text className='text-white text-center font-bold'>Re-Rent Car</Text>
+                      </TouchableOpacity>
+                    </View>
+                  );
+                })}
+              </ScrollView>
             </>
           )}
         </View>

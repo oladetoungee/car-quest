@@ -97,30 +97,30 @@ export default function DetailsScreen() {
           <Text className="text-white text-lg font-bold">Book Now</Text>
         </TouchableOpacity>
       </View>
-
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <View className="flex-1 justify-center items-center bg-black bg-opacity-70">
-          <View className="w-4/5 bg-white p-6 rounded-lg shadow-xl">
-            <Text className="text-xl font-bold mb-4 text-center">Confirm Booking</Text>
-            <Text className="text-base mb-6 text-center">How many hours do you want to rent the car for?</Text>
+        <View className="flex-1 justify-center items-center bg-transparent bg-opacity-70">
+          <View className="w-4/5 bg-matteblack p-6 rounded-lg shadow-xl">
+            <Text className="text-xl font-bold mb-4 text-center text-white">Confirm Booking</Text>
+            <Text className="text-base mb-6 text-center text-white">How many hours do you want to rent the car for?</Text>
             <TextInput
-              style={{ width: '100%', height: 40, borderColor: 'gray', borderWidth: 1, borderRadius: 5, paddingLeft: 10, marginBottom: 10 }}
+              style={{ width: '100%', height: 40, borderColor: 'pink', borderWidth: 1, borderRadius: 5, paddingLeft: 10, marginBottom: 10 }}
               keyboardType="numeric"
               value={String(hours)}
               onChangeText={handleHoursChange}
+              className='text-white '
             />
-            <Text className="text-base mb-4 text-center">Total Amount: NGN {totalAmount}</Text>
+            <Text className="text-base mb-4 text-center text-white">Total Amount: NGN {totalAmount}</Text>
             <View className="flex-row justify-around">
               <TouchableOpacity
                 className="flex-1 bg-gray-200 py-2 mx-2 rounded-full items-center shadow"
                 onPress={() => setModalVisible(false)}
               >
-                <Text className="text-black text-base">Cancel</Text>
+                <Text className="text-white text-base">Cancel</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 className="flex-1 bg-rose-400 py-2 mx-2 rounded-full items-center shadow"
@@ -132,6 +132,7 @@ export default function DetailsScreen() {
           </View>
         </View>
       </Modal>
+
     </View>
     <StatusBar backgroundColor='#161622' style='light' />
     </SafeAreaView>
